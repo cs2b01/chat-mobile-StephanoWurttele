@@ -7,6 +7,7 @@ import android.widget.Toast;
 import java.util.Map;
 import java.util.HashMap;
 import org.json.JSONObject;
+import android.app.Activity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -37,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         // 1. Getting username and password inputs from view
         EditText txtUsername = (EditText) findViewById(R.id.txtUsername);
         EditText txtPassword = (EditText) findViewById(R.id.txtPassword);
-        String username = txtUsername.getText().toString();
+        final String username = txtUsername.getText().toString();
         String password = txtPassword.getText().toString();
 
         // 2. Creating a message from user input data
@@ -61,6 +62,9 @@ public class LoginActivity extends AppCompatActivity {
                         String message = response.getString("message");
                         if(message.equals("Authorized")) {
                             showMessage("Authenticated");
+                            Intent intent = new Intent(getActivity(), ContactsActivity.class);
+                            intent.putExtra("username", username);
+                            startActivity(intent);
                         }
                         else {
                             showMessage("Wrong username or password");
