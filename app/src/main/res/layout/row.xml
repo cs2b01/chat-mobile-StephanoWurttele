@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/Contact"
+        android:layout_width="377dp"
+        android:layout_height="50dp"
+        android:background="#333"
+        android:gravity="center"
+        android:text="Contacts"
+        android:textColor="#fff"
+
+        />
+
+
+
+
+    </RelativeLayout>
+
