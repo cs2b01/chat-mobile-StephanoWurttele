@@ -1,13 +1,14 @@
 package cs2901.utec.chat_mobile;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
+import android.content.ComponentCallbacks;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Toast;
 import java.util.Map;
 import java.util.HashMap;
 import org.json.JSONObject;
-import android.app.Activity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -33,7 +34,9 @@ public class LoginActivity extends AppCompatActivity {
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
-
+    public Activity getActivity(){
+        return this;
+    }
     public void onBtnLoginClicked(View view) {
         // 1. Getting username and password inputs from view
         EditText txtUsername = (EditText) findViewById(R.id.txtUsername);
@@ -61,8 +64,10 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         String message = response.getString("message");
                         if(message.equals("Authorized")) {
+                            EditText txtUsername = (EditText) findViewById(R.id.txtUsername);
+                            String username = txtUsername.getText().toString();
                             showMessage("Authenticated");
-                            Intent intent = new Intent(getActivity(), ContactsActivity.class);
+                            Intent intent = new Intent(getActivity(), ContactActivity.class);
                             intent.putExtra("username", username);
                             startActivity(intent);
                         }

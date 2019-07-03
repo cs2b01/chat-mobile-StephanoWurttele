@@ -1,6 +1,8 @@
 package cs2901.utec.chat_mobile;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.widget.TextView;
 
 public class ContactActivity extends AppCompatActivity {
     @Override
