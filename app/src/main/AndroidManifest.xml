@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContactActivity" />
+        <activity android:name=".MessageActivity" />
     </application>
 
 </manifest>
